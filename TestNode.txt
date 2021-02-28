@@ -1,0 +1,35 @@
+C:\WINDOWS\system32>node
+Welcome to Node.js v12.18.0.
+Type ".help" for more information.
+> (async(a=1, ...b) => ({...b, a, [a]: `$[a]` }))()
+Promise { { '1': '$[a]', a: 1 } }
+> util.promisify
+[Function: promisify] { custom: Symbol(nodejs.util.promisify.custom) }
+> require('fs').promises
+{
+  access: [AsyncFunction: access],
+  copyFile: [AsyncFunction: copyFile],
+  open: [AsyncFunction: open],
+  opendir: [Function: opendir],
+  rename: [AsyncFunction: rename],
+  truncate: [AsyncFunction: truncate],
+  rmdir: [AsyncFunction: rmdir],
+  mkdir: [AsyncFunction: mkdir],
+  readdir: [AsyncFunction: readdir],
+  readlink: [AsyncFunction: readlink],
+  symlink: [AsyncFunction: symlink],
+  lstat: [AsyncFunction: lstat],
+  stat: [AsyncFunction: stat],
+  link: [AsyncFunction: link],
+  unlink: [AsyncFunction: unlink],
+  chmod: [AsyncFunction: chmod],
+  lchmod: [AsyncFunction: lchmod],
+  lchown: [AsyncFunction: lchown],
+  chown: [AsyncFunction: chown],
+  utimes: [AsyncFunction: utimes],
+  realpath: [AsyncFunction: realpath],
+  mkdtemp: [AsyncFunction: mkdtemp],
+  writeFile: [AsyncFunction: writeFile],
+  appendFile: [AsyncFunction: appendFile],
+  readFile: [AsyncFunction: readFile]
+}
