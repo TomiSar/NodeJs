@@ -14,6 +14,7 @@
 <body>
     <!-- Insert the partials/_header.hbs -->
     {{> _header}}
+    {{> _add_btn}}
 
     <div class="container">
         {{{body}}}
@@ -21,11 +22,19 @@
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- https://cdnjs.com/ ckeditor -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ckeditor/4.16.0/ckeditor.js" 
+    integrity="sha512-7My1gsUz5JUQgT8+P0sHKaPel/77X3zjGZsXbTS8Y7MhDEJ+f9xg9H+pPzONFL5djye0zWLlxFLApGsWQ1gdfA==" crossorigin="anonymous"></script>
 
     <!-- Initialize the sidenav from _header -->
     <script>
         M.Sidenav.init(document.querySelector('.sidenav'))
-        
+        M.FormSelect.init(document.querySelector('#status'))
+
+        // Init CKEditor for editing Story at the bottom of the page
+        CKEDITOR.replace('body', {
+            plugins: 'wysiwygarea, toolbar, basicstyles, link'
+        })
     </script>
 </body>
 </html>

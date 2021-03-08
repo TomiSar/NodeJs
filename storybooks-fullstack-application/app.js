@@ -21,6 +21,10 @@ connectDB();
 
 const app = express();
 
+// Body parser
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 // Logging in development mode use morgan
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
@@ -44,6 +48,7 @@ app.use(
     resave: false,
     saveUninitialized: false,
     store: mongoStore,
+    cookie: { maxAge: 1000 * 60 * 60 * 24 } //cookie Valid for 24 hours
   })
 );
 
@@ -54,9 +59,10 @@ app.use(passport.session());
 // Setup static folder for css
 app.use(express.static(path.join(__dirname, "public")));
 
-// Routes used in the App
-app.use("/", require("./routes/index"));
-app.use("/auth", require("./routes/auth"));
+// Add here all the Routes used in the App
+app.use('/', require('./routes/index'));
+app.use('/auth', require('./routes/auth'));
+app.use('/stories', require('./routes/stories'));
 
 const PORT = process.env.PORT || 4000;
 
