@@ -1,8 +1,8 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const { ensureAuth, ensureGuest } = require("../middleware/auth");
+const { ensureAuth, ensureGuest } = require('../middleware/auth');
 
-const Story = require("../models/Story");
+const Story = require('../models/Story');
 
 // @description Login/Landing page
 // @route       GET /
@@ -12,7 +12,7 @@ router.get('/', ensureGuest, (req, res) => {
     layout: 'login',
   });
 });
- 
+
 // @description Dashboard
 // @route       GET /dashboard
 router.get('/dashboard', ensureAuth, async (req, res) => {
